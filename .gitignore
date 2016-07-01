@@ -1,0 +1,9 @@
+# go default.nix specific
+.go
+
+# gb
+bin
+pkg
+
+# riotjs
+.tmp
