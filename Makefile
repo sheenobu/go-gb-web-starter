@@ -1,5 +1,4 @@
 
-
 # riot support
 SOURCES=$(shell find src -type f -iname '*.tag')
 OBJECTS=$(foreach x, $(basename $(SOURCES)), .tmp/$(x).js)
