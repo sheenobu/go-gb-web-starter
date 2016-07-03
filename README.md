@@ -10,7 +10,7 @@ A simple starter application using Golang, Nix, and riotjs.
 
 Most of the docker support came from this post:
 
-https://lethalman.blogspot.com/2016/04/cheap-docker-images-with-nix\_15.html
+https://lethalman.blogspot.com/2016/04/cheap-docker-images-with-nix_15.html
 
 ## commands
 
