@@ -42,7 +42,7 @@ in
     '';
   };
 
-  buildGbBinary = { name, ... } @ args: { }: stdenv.mkDerivation {
+  buildGbBinary = { name, ... } @ args: stdenv.mkDerivation {
 	inherit name;
     src = ../../.;
 

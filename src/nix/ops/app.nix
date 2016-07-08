@@ -1,13 +1,13 @@
+let
+	local = import ../../nix {};
+in
 {
   network.description = "Simple Static Application Network";
 
   staticappsrv  =
     { config, stdenv, pkgs, ... }:
     let
-       staticsrv = (pkgs.callPackage ../../cmd/staticsrv {
-          inherit stdenv;
-          inherit pkgs;
-       }) {};
+       staticsrv = (pkgs.callPackage ../../cmd/staticsrv) {};
     in
     {
       systemd.services.staticsrv =
