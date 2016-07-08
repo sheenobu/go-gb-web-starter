@@ -2,9 +2,12 @@
   network.description = "Simple Static Application Network";
 
   staticappsrv  =
-    { config, pkgs, ... }:
+    { config, stdenv, pkgs, ... }:
     let
-       staticsrv = (pkgs.callPackage ../../cmd/staticsrv {});
+       staticsrv = (pkgs.callPackage ../../cmd/staticsrv {
+          inherit stdenv;
+          inherit pkgs;
+       }) {};
     in
     {
       systemd.services.staticsrv =

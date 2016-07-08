@@ -1,7 +1,10 @@
 with import <nixpkgs> {};
 with import ../../nix {};
 let
-	staticsrv = (callPackage ./default.nix {});
+	staticsrv = (callPackage ./default.nix {
+	  inherit stdenv;
+	  inherit pkgs;
+	}) {};
 in
 dockerTools.buildImage {
 
