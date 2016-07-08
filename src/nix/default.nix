@@ -1,9 +1,9 @@
 with import <nixpkgs> {};
 { }:
 let
-  gb = (callPackage ./gb {}).bin // { outputs = [ "bin" ]; };
-  riot = (callPackage ./riot {});
-  gosu = (callPackage ./gosu { runc = callPackage ./runc {}; });
+  gb = (callPackage ./pkgs/gb {}).bin // { outputs = [ "bin" ]; };
+  riot = (callPackage ./pkgs/riot {});
+  gosu = (callPackage ./pkgs/gosu { runc = callPackage ./pkgs/runc {}; });
 
   go = go_1_6;
   removeReferences = [ go ];
@@ -17,7 +17,7 @@ in
 
   myEnv = stdenv.mkDerivation {
     name = "go-gb-env";
-    buildInputs = [ go gb riot python27Packages.docker_compose ];
+    buildInputs = [ go gb riot nixops ];
     shellHook = ''
         export GOROOT="${go}/share/go"
         export GOPATH="$PWD/.go:$PWD/vendor:$PWD"
